@@ -11,8 +11,12 @@ services:
       - "5432:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
-      - ./seed.sql:/docker-entrypoint-initdb.d/seed.sql # Mount the seed script
-    entrypoint: ["docker-entrypoint.sh", "postgres"] # Ensure the script runs on startup
+      - ./seed.sql:/docker-entrypoint-initdb.d/seed.sql
+    command: >
+      bash -c "docker-entrypoint.sh postgres & 
+      sleep 5 && 
+      psql -U user -d windows_explorer -f /docker-entrypoint-initdb.d/seed.sql && 
+      wait"
 
   backend:
     build:
