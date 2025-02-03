@@ -1,0 +1,204 @@
+/* Remove Tailwind CSS imports */
+/* @tailwind base;
+@tailwind components;
+@tailwind utilities; */
+
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: #213547; /* Dark text for light mode */
+  background-color: #ffffff; /* Light background for light mode */
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Global Styles */
+body {
+  margin: 0;
+  display: flex;
+  min-width: 320px;
+  min-height: 100vh;
+  background-color: #f5f5f5; /* Light gray background */
+}
+
+/* Toolbar Styles */
+.toolbar {
+  display: flex;
+  align-items: center;
+  padding: 8px;
+  background-color: #fff; /* White background */
+  border-bottom: 1px solid #ddd; /* Light gray border */
+}
+
+.toolbar-button {
+  background: none;
+  border: none;
+  padding: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  color: #555; /* Dark gray text */
+}
+
+.toolbar-button:hover {
+  background-color: #f0f0f0; /* Light gray hover background */
+  border-radius: 4px;
+}
+
+.search-bar {
+  margin-left: 16px;
+  padding: 6px 12px;
+  border: 1px solid #ddd; /* Light gray border */
+  border-radius: 4px;
+  font-size: 14px;
+  width: 200px;
+}
+
+/* Main Content Styles */
+.main-content {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+/* Sidebar Styles */
+.sidebar {
+  width: 250px;
+  background-color: #fff; /* White background */
+  border-right: 1px solid #ddd; /* Light gray border */
+  overflow-y: auto;
+}
+
+/* Folder Item Styles */
+.folder-item {
+  display: flex;
+  align-items: center;
+  padding: 8px 16px;
+  cursor: pointer;
+  color: #555; /* Dark gray text */
+}
+
+.folder-item:hover {
+  background-color: #f0f0f0; /* Light gray hover background */
+}
+
+.folder-item i {
+  margin-right: 8px;
+  color: #ffc107; /* Yellow color for folder icons */
+}
+
+/* Content Area Styles */
+.content-area {
+  flex: 1;
+  background-color: #fff; /* White background */
+  padding: 16px;
+  overflow-y: auto;
+}
+
+/* Subfolder Grid Styles */
+.subfolder-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 16px;
+}
+
+.subfolder-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 16px;
+  border: 1px solid #ddd; /* Light gray border */
+  border-radius: 4px;
+  text-align: center;
+  cursor: pointer;
+  background-color: #fff; /* White background */
+}
+
+.subfolder-item:hover {
+  background-color: #f0f0f0; /* Light gray hover background */
+}
+
+.subfolder-item i {
+  font-size: 24px;
+  color: #ffc107; /* Yellow color for folder icons */
+  margin-bottom: 8px;
+}
+
+.subfolder-item p {
+  font-size: 14px;
+  color: #333; /* Dark gray text */
+}
+
+/* Empty State Styles */
+.empty-state {
+  color: #888; /* Gray text */
+  font-size: 14px;
+  text-align: center;
+  margin-top: 24px;
+}
+
+/* Dark Mode Styles */
+@media (prefers-color-scheme: dark) {
+  :root {
+    color: rgba(255, 255, 255, 0.87); /* Light text for dark mode */
+    background-color: #242424; /* Dark background for dark mode */
+  }
+
+  .toolbar {
+    background-color: #1a1a1a; /* Dark toolbar background */
+    border-bottom: 1px solid #333; /* Dark border */
+  }
+
+  .toolbar-button {
+    color: #fff; /* White text */
+  }
+
+  .toolbar-button:hover {
+    background-color: #333; /* Dark hover background */
+  }
+
+  .search-bar {
+    background-color: #333; /* Dark search bar background */
+    border-color: #555; /* Dark border */
+    color: #fff; /* White text */
+  }
+
+  .sidebar {
+    background-color: #1a1a1a; /* Dark sidebar background */
+    border-right: 1px solid #333; /* Dark border */
+  }
+
+  .folder-item {
+    color: #fff; /* White text */
+  }
+
+  .folder-item:hover {
+    background-color: #333; /* Dark hover background */
+  }
+
+  .content-area {
+    background-color: #1a1a1a; /* Dark content area background */
+  }
+
+  .subfolder-item {
+    background-color: #1a1a1a; /* Dark subfolder background */
+    border-color: #333; /* Dark border */
+  }
+
+  .subfolder-item:hover {
+    background-color: #333; /* Dark hover background */
+  }
+
+  .subfolder-item p {
+    color: #fff; /* White text */
+  }
+
+  .empty-state {
+    color: #888; /* Gray text */
+  }
+}

@@ -1,0 +1,41 @@
+version: "3.8"
+
+services:
+  db:
+    image: postgres:latest
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: windows_explorer
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./seed.sql:/docker-entrypoint-initdb.d/seed.sql # Mount the seed script
+    entrypoint: ["docker-entrypoint.sh", "postgres"] # Ensure the script runs on startup
+
+  backend:
+    build:
+      context: ./apps/backend
+    ports:
+      - "3000:3000"
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: windows_explorer
+      POSTGRES_HOST: db
+    depends_on:
+      - db
+
+  frontend:
+    build:
+      context: ./apps/frontend
+    ports:
+      - "5173:5173"
+    environment:
+      VITE_API_URL: "http://backend:3000/" # Use backend container name
+    depends_on:
+      - backend
+
+volumes:
+  postgres_data:
